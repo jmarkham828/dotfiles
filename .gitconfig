@@ -1,0 +1,12 @@
+[user]
+    name = John Markham
+    email = jmarkham828@berkeley.edu
+
+[core]
+    editor = nvim
+
+[alias]
+    amend = commit --amend
+    b = branch
+    p = push
+    s = status
