@@ -25,7 +25,6 @@ alias l='ls'
 setopt auto_cd
 
 # Desktop Shortcuts <3
-# AKA an implementation of CDPATH=CDPATH:~/Desktop/
 alias de='cd && cd Desktop/'
 DESKTOP_DIR_NAMES="$(de && find . -type d -maxdepth 1 | sed 's/[\.\/]//g' | sed '/^[[:space:]]*$/d')"
 while read -r file; do
@@ -67,6 +66,8 @@ export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+export HOMEBREW_NO_AUTO_UPDATE="1"
 
 ### FUNCTIONS ###
 SHEBANG="#!/usr/bin/env bash"
@@ -237,7 +238,9 @@ function vi_mode_prompt_info() {
 ### FZF ###
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export PATH="/opt/overrides/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform

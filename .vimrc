@@ -18,6 +18,17 @@ call plug#end()
 " COC Autocomplete
 set updatetime=300
 
+nnoremap <C-P> <Cmd>FZF<Enter>
+let g:fzf_action = {
+\ 'Enter': 'tabe',
+\ 'Tab': 'rightbelow vsplit'
+\}
+
+nnoremap <C-J> <C-W>w
+inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap <Esc> <nop>
+
 " Tab autocomplete
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -114,9 +125,6 @@ if has('mouse')
   set mouse=a
 endif
 
-inoremap jk <Esc>
-inoremap Jk <Esc>
-inoremap <Esc> <nop>
 
 " Don't autoselect an item from the completion menu, and always show the menu
 let g:completor_complete_options='menuone,noinsert'
